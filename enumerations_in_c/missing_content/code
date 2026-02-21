@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+
+// Your code goes here 
+    enum Status
+    {
+        Pending,
+        InProgress,
+        Done,
+    };
+
+    bool isDone(Status status)
+    {
+        if (status==Done)
+            return true;
+        else
+            return false;
+    }
+
+    std::string toString(Status status)
+        {
+        switch(status)
+            {
+                case Pending:
+                    return "Pending";
+                    break;
+                case InProgress:
+                    return "InProgress";
+                    break;
+                case Done:
+                    return "Done";
+                    break;
+                default:
+                    return "Unknown";
+                    break;
+            }
+        }
+
+int main()
+{
+    Status statuses[] = { Pending, InProgress, Done };
+    std::cout <<"Status: "<< toString(Pending)<<", isDone: "<< isDone(statuses[0]) << std::endl;
+    std::cout <<"Status: "<< toString(InProgress)<<", isDone: "<< isDone(statuses[1]) << std::endl;
+    std::cout <<"Status: "<< toString(Done)<<", isDone: "<< isDone(statuses[2]) << std::endl;
+    return 0;
+}

@@ -1,0 +1,19 @@
+#include <iostream>
+
+struct Person {
+    std::string name;
+    int age;
+};
+
+void updateAge(Person& person, int newAge)
+{
+    person.age=newAge;
+}
+
+int main()
+{
+    Person alice{"Alice", 30};
+    updateAge(alice, 35);
+    std::cout << "Updated age: " << alice.age << std::endl;
+    return 0;
+}

@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+struct Book {
+    std::string title;
+    std::string author;
+    int pages;
+};
+
+std::string findLongestBookTitle(const std::vector<Book>& books)
+{
+    int maxPages={};
+    std::string bookname={};
+    for(int i = 0;i<books.size();i++)
+        {
+            if (books[i].pages>maxPages)
+            {
+                maxPages=books[i].pages;
+                bookname=books[i].title;
+            }   
+        }
+    return bookname;
+    
+}
+
+int main()
+{
+    std::vector<Book> library = {
+        {"The Great Gatsby", "F. Scott Fitzgerald", 180},
+        {"Moby Dick", "Herman Melville", 635},
+        {"War and Peace", "Leo Tolstoy", 1225}
+    };
+    std::cout << "Longest book: " << findLongestBookTitle(library) << std::endl;
+    return 0;
+}

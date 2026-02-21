@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+
+    struct Address
+    {
+    std::string city;
+    };
+
+    struct Company
+    {
+    Address address;
+    };
+
+    std::string printCompanyCity(Company company)
+        {
+         return "Company city: "+company.address.city;
+        }
+       
+                    
+// Define `Address` struct and `Company` struct here
+    
+// Implement printCompanyCity here (should return std::string)
+
+int main()
+{
+    Company myCompany;
+    myCompany.address.city = "San Francisco";
+    // Set myCompany's city to "San Francisco" here
+    std::string result = printCompanyCity(myCompany);
+    std::cout << printCompanyCity(myCompany);
+    return 0;
+}

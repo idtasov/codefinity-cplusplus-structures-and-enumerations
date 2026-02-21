@@ -1,46 +1,35 @@
 #include <iostream>
-#include <string>
 
-// Your code goes here 
-    enum Status
-    {
-        Pending,
-        InProgress,
-        Done,
-    };
+struct Student 
+{
+    // Define Level enum and member variable here
+    enum Level
+        {
+            Freshman,
+            Sophomore,
+            Junior,
+            Senior,
+        };
 
-    bool isDone(Status status)
+    Level level;
+};
+
+bool isSenior(const Student& student)
     {
-        if (status==Done)
-            return true;
-        else
-            return false;
+    if(student.level==Student::Senior)
+        return true;
+    else
+        return false;
     }
 
-    std::string toString(Status status)
-        {
-        switch(status)
-            {
-                case Pending:
-                    return "Pending";
-                    break;
-                case InProgress:
-                    return "InProgress";
-                    break;
-                case Done:
-                    return "Done";
-                    break;
-                default:
-                    return "Unknown";
-                    break;
-            }
-        }
+// Define isSenior function here
 
 int main()
 {
-    Status statuses[] = { Pending, InProgress, Done };
-    std::cout <<"Status: "<< toString(Pending)<<", isDone: "<< isDone(statuses[0]) << std::endl;
-    std::cout <<"Status: "<< toString(InProgress)<<", isDone: "<< isDone(statuses[1]) << std::endl;
-    std::cout <<"Status: "<< toString(Done)<<", isDone: "<< isDone(statuses[2]) << std::endl;
+    Student alice{ Student::Senior };
+    Student bob{ Student::Junior };
+
+    std::cout << "Is the student a senior? " << (isSenior(alice) ? "true" : "false") << std::endl;
+    std::cout << "Is the student a senior? " << (isSenior(bob) ? "true" : "false") << std::endl;
     return 0;
 }
